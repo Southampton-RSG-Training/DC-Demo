@@ -10,7 +10,6 @@ specific to languages will be listed in the appropriate section(s) below.
 
 ### Best Practices in Data Organisation Using Spreadsheets
 
-
 #### Data
 The data used in this lesson comes from a project observing a small mammal community in southern
 Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
@@ -33,17 +32,6 @@ files combined into one clean file (a good example of what a clean data file sho
 Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hindfoot_length`, `weight`, `genus`,
 `species`, `taxa`, `plot_type`
 
-> ## For Interest Only: Portal Project Teaching Dataset
-> [The Portal Project Teaching Database](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459) is a simplified version of the
-> [Portal Project Database](https://github.com/weecology/PortalData) designed for teaching. It provides a real world example of life-history, population, and ecological data, with sufficient complexity to teach many aspects of data analysis and management, but with many complexities removed to allow students to focus on the core ideas and skills being taught. The database is currently available in csv, json, and sqlite formats.
->
-> The Portal Project Teaching Database's GitHub repository can be found at: [https://github.com/weecology/portal-teachingdb](https://github.com/weecology/portal-teachingdb),
-> where suggested changes or additions to this dataset can be requested or contributed.
-> This database is not designed for research as it intentionally removes some of the real-world complexities. The Python code used for converting the original database to this teaching version can be found in [create_portal_teach_dataset.py](https://github.com/weecology/portal-teachingdb/blob/master/create_portal_teaching_dataset.py).
->
-> **CITATION:** Ernest, Morgan; Brown, James; Valone, Thomas; White, Ethan P. (2017): Portal Project Teaching Database. Figshare. [https://doi.org/10.6084/m9.figshare.1314459.v6](https://doi.org/10.6084/m9.figshare.1314459.v6)
-{: .testimonial}
-
 #### Software
 
 To interact with spreadsheets, you can use various software - for example Microsoft Excel,
@@ -55,7 +43,6 @@ For this lesson, if you do not have a spreadsheet program already, you can use a
 as it can open Excel spreadsheets, which is the format of the data we will work with during the lesson
 (also all examples used refer to Excel).
 
-{% comment %}
 ##### Windows
 
 - Download the Installer
@@ -76,13 +63,7 @@ as it can open Excel spreadsheets, which is the format of the data we will work 
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
 - Install LibreOffice
 - Once the installer is downloaded, double click on it and LibreOffice should install.
-{% endcomment %}
 
-{% if site.carpentry != "rsg" %}
-    {% assign lessonlink = "https://southampton-rsg.github.io/spreadsheets-data-organisation-and-management/00-intro/index.html" %}
-#### Now what?
-Once you have downloaded the files and have a spreadsheet programme, you can [start the lesson]({{ lessonlink }}).
-{% endif %}
 
 
 
@@ -146,15 +127,7 @@ Once it is running on your machine, you access it via your browser at the addres
 - Unzip the downloaded file into a directory. Go to this directory from terminal and type ./refine to start.
 - Wait for OpenRefine to launch in your default Web browser, which is where you will interact with the program. If this does not happen, head to [http://localhost:3333](http://localhost:3333) in your Web browser of choice.
 
-#### Now what?
 
-{% if site.carpentry == "rsg" %}
-    {% assign lessonlink = "openrefine-data-cleaning-introduction" %}
-{% else %}
-    {% assign lessonlink = "https://southampton-rsg.github.io/openrefine-data-cleaning/00-getting-started/index.html" %}
-{% endif %}
-
-Once you've downloaded the file above, you can [start the lesson]({{ lessonlink }}).
 
 ### Automating Tasks with the Unix Shell
 
@@ -251,9 +224,7 @@ $ git clone https://github.com/Southampton-RSG/swc-git-novice
 ~~~
 {: .language-bash}
 
-
 `cd` will move to your home directory, and `git clone` will download a copy of the materials.
-Once you're all set up, [we can start the course](git-novice-what-is-version-control).
 
 {% include links.md %}
 

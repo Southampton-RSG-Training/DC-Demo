@@ -60,12 +60,4 @@ Once it is running on your machine, you access it via your browser at the addres
 - Unzip the downloaded file into a directory. Go to this directory from terminal and type ./refine to start.
 - Wait for OpenRefine to launch in your default Web browser, which is where you will interact with the program. If this does not happen, head to [http://localhost:3333](http://localhost:3333) in your Web browser of choice.
 
-## Now what?
 
-{% if site.carpentry == "rsg" %}
-    {% assign lessonlink = "openrefine-data-cleaning-introduction" %}
-{% else %}
-    {% assign lessonlink = "https://southampton-rsg.github.io/openrefine-data-cleaning/00-getting-started/index.html" %}
-{% endif %}
-
-Once you've downloaded the file above, you can [start the lesson]({{ lessonlink }}).

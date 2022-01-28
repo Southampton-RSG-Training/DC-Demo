@@ -13,6 +13,7 @@ carpentry: "rsg"
 # Most workshops don't use extra pages. More information about extra
 # pages are included in the README:
 # https://github.com/carpentries/workshop-template#creating-extra-pages
+
 title: "DC-Demo"
 
 # Specify the location of the workshop
@@ -44,6 +45,7 @@ helper:
 
 # Details about the lessons
 lessons:
+
   - title: Best Practices in Data Organisation Using Spreadsheets
     gh-name: spreadsheets
     type: episode
@@ -57,6 +59,7 @@ lessons:
     branch: gh-pages
     date: 14 January 2022
     start-time: 10:00
+
 
   #  - title: Managing Academic Software Development
   #    gh-name: project-novice
@@ -72,6 +75,7 @@ lessons:
     branch: gh-pages                             # Set the branch of the repository to use, useful for lesson customization
     date: 15 January 2022                         # The date of the lesson
     start-time: 10:00                         # The start time of the lesson
+
 
   - title: Version Control with git
     gh-name: git-novice
@@ -91,6 +95,7 @@ lessons:
   #      - 10:00 am
   #      - 10:00 am
 
+
   - title: Data Analysis and Visualization in R
     gh-name: r-novice
     type: episode_r
@@ -103,6 +108,7 @@ lessons:
       - 10:00
       - 10:00
       - 10:00
+
 
 # Specify that things in the episodes collection should be output.
 collections:
