@@ -78,16 +78,13 @@ as it can open Excel spreadsheets, which is the format of the data we will work 
 - Once the installer is downloaded, double click on it and LibreOffice should install.
 {% endcomment %}
 
-#### Now what?
-
-{% if site.carpentry == "rsg" %}
-    {% assign lessonlink = "spreadsheets-introduction" %}
-{% else %}
+{% if site.carpentry != "rsg" %}
     {% assign lessonlink = "https://southampton-rsg.github.io/spreadsheets-data-organisation-and-management/00-intro/index.html" %}
+#### Now what?
+Once you have downloaded the files and have a spreadsheet programme, you can [start the lesson]({{ lessonlink }}).
 {% endif %}
 
 
-Once you have downloaded the files and have a spreadsheet programme, you can [start the lesson]({{ lessonlink }}).
 
 ### Data Cleaning with OpenRefine
 
@@ -165,9 +162,9 @@ Once you've downloaded the file above, you can [start the lesson]({{ lessonlink 
 
 You need to download some files to follow this lesson. First, you need to open a terminal:
 
-- **On Windows:** run "Git Bash", which you installed as part of the software prerequisites
-- **On Mac OS X:** accessed by opening the “Terminal” application, which can be found in the “Utilities” folder which is in your “Applications” folder
-- **On Linux:** this will depend on the Linux distribution you are running, but you should be able to find a "Terminal" application in your desktop's application menu
+- **On Windows:** run "Git Bash", to install git bash go here [https://gitforwindows.org/](https://gitforwindows.org/) click download and select 'Git-X.XX.X-64-bit.exe' from the assets list.
+- **On Mac OS X:** accessed by opening the “Terminal” application, which can be found in the “Utilities” folder which is in your “Applications” folder.
+- **On Linux:** this will depend on the Linux distribution you are running, but you should be able to find a "Terminal" application in your desktop's application menu.
 
 Once you've done this, a window should appear. Type the following into the prompt that appears (pressing enter/return after each line):
 
@@ -194,17 +191,25 @@ Please let the instructors know if you run into any problems.
 
 #### Git Setup 
 
-{% if site.carpentry == "rsg" %}
-  {% assign slidelink = "slides/git-novice-lesson/index.html" %}
-{% else %}
-  {% assign slidelink = "../slides/index.html" %}
-{% endif %}
-
-[The slides to accompany this material can be found here.]({{ slidelink }})
+##### Windows
+To install git bash go here [https://gitforwindows.org/](https://gitforwindows.org/) click download and select 'Git-X.XX.X-64-bit.exe' from the assets list.
 Before we get started, we'll have to do a few things.
 
-![Setup](fig/slides/setup.png){:width="20%"}
+##### Mac OS
+To use Git you must install the Apple Command Line Tools.  You can obtain these [from Apple](https://developer.apple.com/download/more/?name=command%20line%20tools%20for%20xcode%2012) (requires your Apple ID)
 
+- Select **Command Line Tools for Xcode 12** and click the link to download the dmg archive.
+- If prompted, choose to allow downloads from developer.apple.com
+- Open the downloaded dmg archive from the Downloads folder
+- Double-click the Command Line Tools.pkg icon to install
+
+
+{% if site.carpentry != "rsg" %}
+{% assign slidelink = "../slides/index.html" %}
+[The slides to accompany this material can be found here.]({{ slidelink }})
+{% endif %}
+
+##### GitHub
 Later on in the session, we'll be demonstrating how to share work with collaborators using GitHub. You'll need to create an account there: [https://github.com/](https://github.com/).
 
 As your GitHub user name will appear in the URLs of your projects there, it's best to use a short, clear version of your name if you can.

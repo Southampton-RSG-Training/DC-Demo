@@ -22,8 +22,8 @@ import dateutil
 
 
 class LessonType(Enum):
-    """Enum for the different types of lessons."""
-
+    """Enum for the different types of lessons.
+    """
     markdown = "episode"
     r_markdown = "episode_r"
 
@@ -67,9 +67,9 @@ def get_date_object(datestr):
         raise ValueError(f"datestr is not a string but {type(datestr)}")
 
     try:
-        date = dateutil.parser.parse(datestr).date()
+        date =  dateutil.parser.parse(datestr).date()
     except dateutil.parser.ParserError:
-        date = None
+        date =  None
 
     return date
 
@@ -92,19 +92,16 @@ def get_time_object(time_string):
     """
     if type(time_string) is str:
         try:
-            time = datetime.datetime.strptime(time_string, "%I:%M %p")  # start-time: 9:30 am
+            time = datetime.datetime.strptime(time_string, "%I:%M %p")   # start-time: 9:30 am
         except ValueError:
-            time = datetime.datetime.strptime(time_string, "%H:%M")  # start-time: "9:30"
+            time = datetime.datetime.strptime(time_string, "%H:%M")      # start-time: "9:30"
     elif type(time_string) is int:
         hours, minutes = divmod(time_string, 60)
-        time = datetime.datetime.strptime(f"{hours}:{minutes}", "%H:%M")  # start-time: 9:30
+        time = datetime.datetime.strptime(f"{hours}:{minutes}", "%H:%M") # start-time: 9:30
     else:
-        raise ValueError(
-            f"start-time {time_string} is an invalid format: accept 24 hr (15:00) or 12 hr with am/pm (3:00 pm)"
-        )
+        raise ValueError(f"start-time {time_string} is an invalid format: accept 24 hr (15:00) or 12 hr with am/pm (3:00 pm)")
 
     return time
-
 
 def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time):
     """Create a detailed lesson schedule landing page for each lesson.
@@ -130,15 +127,13 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time):
         new_file_name = f"{i + 1:02d}{filepath.stem.lstrip(string.digits)}.{file_ext}"
         filepath.rename(f"{containing_directory}/{new_file_name}")
 
-    schedule_markdown = textwrap.dedent(
-        f"""---
+    schedule_markdown = textwrap.dedent(f"""---
     title: Lesson Schedule
     slug: {lesson_name}-schedule
     layout: schedule
     ---
     {{% include syllabus.html  name="{lesson_name}" start_time={start_time} %}}
-    """
-    )
+    """)
 
     with open(f"{containing_directory}/00-schedule.md", "w") as fp:
         fp.write("\n".join([line.lstrip() for line in schedule_markdown.splitlines()]))
@@ -158,21 +153,20 @@ def create_index_schedules(schedules):
         with keys "date" which is the date for the lesson and "schedule" which
         is the html table for the schedule.
     """
-
+    html = "<div class=\"row\">"
     n_lessons = len(schedules)
     n_rows = math.ceil(n_lessons / 2)
     ordered_schedules = sorted(schedules, key=lambda x: x["date"])
 
-    left = ordered_schedules[:n_rows]
-    right = ordered_schedules[n_rows:]
-
-    html = ""
     for i in range(n_rows):
-        html += '<div class="row">'
-        html += left[i]["schedule"]
-        if i < len(right):
-            html += right[i]["schedule"]
-        html += "</div>"
+        left_idx = i
+        html += ordered_schedules[left_idx]["schedule"]
+
+        right_idx = i + n_rows
+        if right_idx < n_lessons:
+            html += ordered_schedules[right_idx]["schedule"]
+
+    html += "</div>"
 
     with open("_includes/rsg/schedule.html", "w") as fp:
         fp.write(bs(html, "html.parser").prettify())
@@ -204,13 +198,11 @@ def main():
     lesson_schedules = []
 
     for lesson in lessons:
-        lesson_type = LessonType(
-            lesson.get("type", None)
-        )  # have to differentiate between markdown and r-markdown lessons
+        lesson_type = LessonType(lesson.get("type", None))  # have to differentiate between markdown and r-markdown lessons
         lesson_title = lesson.get("title", None)
         lesson_name = lesson.get("gh-name", None)
-        lesson_dates = lesson.get("date", None)  # can be a list
-        lesson_starts = lesson.get("start-time", None)  # can be a list
+        lesson_dates = lesson.get("date", None)             # can be a list
+        lesson_starts = lesson.get("start-time", None)      # can be a list
 
         if [thing for thing in (lesson_name, lesson_dates, lesson_title, lesson_starts) if thing is None]:
             raise ValueError(f"gh-name, date, title, and start-time are required for each lesson")
@@ -236,14 +228,11 @@ def main():
         all_schedules = pandas.read_html(schedule_html, flavor="lxml")
 
         if len(all_schedules) != len(lesson_dates):
-            raise ValueError(
-                f"There are not the same number of lesson dates for the number of schedules for" " {lesson_name} lesson"
-            )
+            raise ValueError(f"There are not the same number of lesson dates for the number of schedules for"
+                              " {lesson_name} lesson")
         if len(all_schedules) != len(lesson_starts):
-            raise ValueError(
-                f"There are not the same number of lesson start times for the number of schedules for"
-                " {lesson_name} lesson"
-            )
+            raise ValueError(f"There are not the same number of lesson start times for the number of schedules for"
+                              " {lesson_name} lesson")
 
         # Loop over each schedule table, if the lesson has multiple schedules
 
@@ -282,9 +271,7 @@ def main():
 
             for time, session in zip(schedule["time"], schedule["session"]):
                 actual_time = datetime.datetime.strptime(time, "%H:%M") + datetime.timedelta(minutes=delta_minutes)
-                table += (
-                    f"<tr> <td> {actual_time.hour:02d}:{actual_time.minute:02d} </td>    <td> {session} </td> </tr>\n"
-                )
+                table += f"<tr> <td> {actual_time.hour:02d}:{actual_time.minute:02d} </td>    <td> {session} </td> </tr>\n"
 
             table += """
                 </table>
