@@ -493,7 +493,9 @@ files before you operate on them!
 > > fructose.dat    glucose.dat   sucrose.dat
 > > ~~~
 > > 
-> {: .output}
+> 
+{: .output}
+
 > 
 > >
 > > This is because, whilst it runs once for each file containing `.dat`, it doesn't use the loop variable, it prints out the *entire* output of `ls`. The second version will instead print out each datafile on a seperate line (as `ls [file]` will print the file if it exists).

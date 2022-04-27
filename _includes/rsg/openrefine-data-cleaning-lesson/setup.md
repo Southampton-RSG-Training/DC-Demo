@@ -1,22 +1,10 @@
----
-layout: page
-title: Setup
----
-
-## Data
+# Setup for Shell Lesson
+## Introduction to the Data for this Lesson ##
 The data used in this lesson comes from a project observing a small mammal community in southern
 Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
 community that has been running for almost 40 years. The rodents are sampled on a series of 24 plots,
 with different experimental manipulations controlling which rodents are allowed to access which plots.
-
-The Portal Project Teaching Dataset is a real dataset that has been used in over 100 publications. We have simplified it
-for the purposes of this lesson, but you can download the full dataset (see below for details) and work with it
-using exactly the same tools we will learn here.
-
-For this lesson, you will need to download the following file (remember where you downloaded the file!):
-*  [portal_project_rodents.csv](data/portal_project_rodents.csv)
-
-Data in some of the columns of the above file (e.g. `geolocation`, `locality`, `county`, `country`, `JSON`) are contrived for the purpose of the lessons and are in no way related to the original dataset.
+This is a real dataset that has been used in over 100 publications. It is published at [Ecological Archives](http://esapubs.org/archive/ecol/E090/118/) and can be found on [Portal Project Database](https://github.com/weecology/PortalData). This data is open and free to use for research purposes.
 
 > ## For Interest Only: Portal Project Teaching Dataset
 > [The Portal Project Teaching Database](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459) is a simplified version of the
@@ -29,7 +17,15 @@ Data in some of the columns of the above file (e.g. `geolocation`, `locality`, `
 > **CITATION:** Ernest, Morgan; Brown, James; Valone, Thomas; White, Ethan P. (2017): Portal Project Teaching Database. Figshare. [https://doi.org/10.6084/m9.figshare.1314459.v6](https://doi.org/10.6084/m9.figshare.1314459.v6)
 {: .testimonial}
 
-## Software
+The Portal Project Teaching Dataset is a real dataset that has been used in over 100 publications. We have simplified it
+for the purposes of this lesson, but you can download the full dataset (see below for details) and work with it
+using exactly the same tools we will learn here.
+
+For this lesson, you will need to download the following file (remember where you downloaded the file!):
+*  [portal_project_rodents.csv](data/portal_project_rodents.csv)
+
+Data in some of the columns of the above file (e.g. `geolocation`, `locality`, `county`, `country`, `JSON`) are contrived for the purpose of the lessons and are in no way related to the original dataset.
+## Install OpenRefine ##
 
 For this lesson you will need [OpenRefine](http://openrefine.org/) (formerly GoogleRefine) and a web browser.
 Download the most recent version of [OpenRefine](http://openrefine.org/download.html) for your operating system,
@@ -59,5 +55,11 @@ Once it is running on your machine, you access it via your browser at the addres
 - Check that you have Firefox or Chrome browser installed and set as your default browser. You can check how to set your browser as default for [Google Chrome](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en-GB) or [Firefox](https://support.mozilla.org/en-US/kb/make-firefox-your-default-browser).
 - Unzip the downloaded file into a directory. Go to this directory from terminal and type ./refine to start.
 - Wait for OpenRefine to launch in your default Web browser, which is where you will interact with the program. If this does not happen, head to [http://localhost:3333](http://localhost:3333) in your Web browser of choice.
+## Text Editor ##
 
-
+A text editor is the piece of software you use to view and write code. If you
+have a preferred text editor, please use it. Suggestions for text editors are,
+Notepad++ (Windows), TextEdit (macOS), Gedit (GNU/Linux), GNU Nano, Vim.
+Alternatively, there are IDE's (integrated developer environments) that have
+more features specifically for coding such as VS Code; there are also IDEs
+specific to languages will be listed in the appropriate section(s) below.

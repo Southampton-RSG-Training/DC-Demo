@@ -574,7 +574,9 @@ but it does find the copy in `thesis` that we didn't delete.
 > > citations.txt    quotations.txt
 > > ~~~
 > > 
-> {: .output}
+> 
+{: .output}
+
 > 
 > 
 {: .solution}
