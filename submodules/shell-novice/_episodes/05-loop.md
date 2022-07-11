@@ -36,7 +36,7 @@ typing here!):
 
 {: .bash}
 ~~~
-$ cd ~/swc-shell-novice/shell/test_directory/creatures
+$ cd ~/shell-novice/shell/test_directory/creatures
 $ ls
 ~~~
 
@@ -174,7 +174,7 @@ so this loop prints out the first three lines of each data file in turn.
 > script runs, it is considered best practice to use indentation to highlight the loop body.
 > In general programming, indentation is very important. Without indentation in code blocks
 > such as these, code becomes much harder to read.
-
+{: .callout}
 
 ### Dos and don'ts of variable naming
 
@@ -315,9 +315,7 @@ GTTCTGCTAA
 >     head -100 $filename | tail -20
 > done
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > then the shell will expand `*.dat` to create:
 >
@@ -349,9 +347,7 @@ GTTCTGCTAA
 >     head -100 "$filename" | tail -20
 > done
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > but it's simpler just to avoid using spaces (or other special characters) in filenames.
 {: .callout}
@@ -422,9 +418,7 @@ files before you operate on them!
 >     echo mv $filename original-$filename
 > done
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > Instead of running `mv`, this loop runs `echo`, which prints out:
 >
@@ -432,9 +426,7 @@ files before you operate on them!
 > mv basilisk.dat original-basilisk.dat
 > mv unicorn.dat original-unicorn.dat
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > *without* actually running those commands. We can then use up-arrow to
 > redisplay the loop, back-arrow to get to the word `echo`, delete it, and
@@ -453,9 +445,7 @@ files before you operate on them!
 > ~~~
 > fructose.dat    glucose.dat   sucrose.dat
 > ~~~
-> 
-{: .output}
-
+> {: .output}
 >
 > What is the output of:
 >
@@ -465,9 +455,7 @@ files before you operate on them!
 >     ls *.dat
 > done
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > Now, what is the output of:
 >
@@ -477,9 +465,7 @@ files before you operate on them!
 >	ls $datafile
 > done
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > Why do these two loops give you different outputs?
 >
@@ -492,15 +478,11 @@ files before you operate on them!
 > > fructose.dat    glucose.dat   sucrose.dat
 > > fructose.dat    glucose.dat   sucrose.dat
 > > ~~~
-> > 
-> {: .output}
-> 
+> > {: .output}
 > >
 > > This is because, whilst it runs once for each file containing `.dat`, it doesn't use the loop variable, it prints out the *entire* output of `ls`. The second version will instead print out each datafile on a seperate line (as `ls [file]` will print the file if it exists).
 > >
-> 
-{: .solution}
-
+> {: .solution}
 {: .challenge}
 
 
@@ -515,9 +497,7 @@ files before you operate on them!
 >     cat $sugar > xylose.dat
 > done
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > 1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and the text from `sucrose.dat` will be saved to a file called `xylose.dat`.
 > 2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and the text from all three files would be
@@ -532,9 +512,7 @@ files before you operate on them!
 > > 2. Incorrect, since we're using the `>` redirect operator, which will overwrite any previous contents of `xylose.dat`.
 > > 3. Incorrect, since the file `xylose.dat` would not have existed when `*.dat` would have been expanded.
 > > 4. Incorrect.
-> 
-{: .solution}
-
+> {: .solution}
 {: .challenge}
 
 
@@ -545,9 +523,7 @@ files before you operate on them!
 > ~~~
 > fructose.dat    glucose.dat   sucrose.dat   maltose.txt
 > ~~~
-> 
-{: .output}
-
+> {: .output}
 >
 > What would be the output of the following loop?
 >
@@ -557,9 +533,7 @@ files before you operate on them!
 >     cat $datafile >> sugar.dat
 > done
 > ~~~
-> 
-{: .bash}
-
+> {: .bash}
 >
 > 1.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be
 >     concatenated and saved to a file called `sugar.dat`.
@@ -575,9 +549,7 @@ files before you operate on them!
 > > 2. Incorrect, since we're looping through each of the other `.dat` files (`fructose.dat` and `glucose.dat`) whose contents would also be included.
 > > 3. Incorrect, since `maltose.txt` has a `.txt` extension and not a `.dat` extension, so won't match on `*.dat` and won't be included in the loop.
 > > 4. Incorrect, since the `>>` operator redirects all output to the `sugar.dat` file, so we won't see any screen output.
-> 
-{: .solution}
-
+> {: .solution}
 {: .challenge}
 
 
@@ -586,9 +558,7 @@ files before you operate on them!
 > Suppose we want to preview the commands the following loop will execute
 > without actually running those commands:
 >
-> 
-{: .bash}
-
+> {: .bash}
 > ~~~
 > for file in *.dat
 > do
@@ -599,9 +569,7 @@ files before you operate on them!
 > What is the difference between the the two loops below, and which one would we
 > want to run?
 >
-> 
-{: .bash}
-
+> {: .bash}
 > ~~~
 > # Version 1
 > for file in *.dat
@@ -610,9 +578,7 @@ files before you operate on them!
 > done
 > ~~~
 >
-> 
-{: .bash}
-
+> {: .bash}
 > ~~~
 > # Version 2
 > for file in *.dat
@@ -624,9 +590,7 @@ files before you operate on them!
 > > ## Solution
 > >
 > > Version 2 is the one that successfully acts as a dry run. In version 1, since the `>` file redirect is not within quotes, the script will create three files `analyzed-basilisk.dat`, `analyzed-minotaur.dat`, and `analyzed-unicorn.dat` which is not what we want.
-> 
-{: .solution}
-
+> {: .solution}
 {: .challenge}
 
 {% include links.md %}

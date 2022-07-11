@@ -1,4 +1,6 @@
 ---
+lesson_title: 'Automating Tasks with the Unix Shell'
+lesson_schedule_slug: shell-novice-schedule
 title: Loops
 slug: shell-novice-loops
 teaching: 15
@@ -36,7 +38,7 @@ typing here!):
 
 {: .bash}
 ~~~
-$ cd ~/swc-shell-novice/shell/test_directory/creatures
+$ cd ~/shell-novice/shell/test_directory/creatures
 $ ls
 ~~~
 
@@ -174,7 +176,7 @@ so this loop prints out the first three lines of each data file in turn.
 > script runs, it is considered best practice to use indentation to highlight the loop body.
 > In general programming, indentation is very important. Without indentation in code blocks
 > such as these, code becomes much harder to read.
-
+{: .callout}
 
 ### Dos and don'ts of variable naming
 
@@ -493,9 +495,7 @@ files before you operate on them!
 > > fructose.dat    glucose.dat   sucrose.dat
 > > ~~~
 > > 
-> 
-{: .output}
-
+> {: .output}
 > 
 > >
 > > This is because, whilst it runs once for each file containing `.dat`, it doesn't use the loop variable, it prints out the *entire* output of `ls`. The second version will instead print out each datafile on a seperate line (as `ls [file]` will print the file if it exists).

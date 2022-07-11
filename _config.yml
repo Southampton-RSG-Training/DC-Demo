@@ -2,16 +2,19 @@
 # Values for this workshop.
 #------------------------------------------------------------
 # What kind of thing is this ("workshop" or "course")?
-kind: "course"
+kind: "workshop"
 
 # Overall title for the Workshop.
 # This variable is used to (optionally) add a title in the "jumbotron"
 # (the grey box at the top of the page), and to the extra pages.
+
 # Most workshops don't use extra pages. More information about extra
 # pages are included in the README:
 # https://github.com/carpentries/workshop-template#creating-extra-pages
-
 title: "DC-Demo"
+
+# Email address, no mailto:
+email: "rsginfo@soton.ac.uk"
 
 # Specify the location of the workshop
 # TODO: needs documenting a lot better
@@ -43,11 +46,10 @@ helper:
 
 # Details about the lessons
 lessons:
-
   - title: Best Practices in Data Organisation Using Spreadsheets
     gh-name: spreadsheets
     type: episode
-    branch: gh-pages
+    branch: main
     date: 13 January 2022
     start-time: 15:00
     order: 1
@@ -55,16 +57,15 @@ lessons:
   - title: Data Cleaning with OpenRefine
     gh-name: openrefine-data-cleaning
     type: episode
-    branch: gh-pages
+    branch: main
     date: 14 January 2022
     start-time: 15:00
     order: 2
 
-
   #  - title: Managing Academic Software Development
   #    gh-name: project-novice
   #    type: episode
-  #    branch: gh-pages
+  #    branch: main
   #    date: 10 January 2022
   #    start-time: 9:30 am
 
@@ -72,7 +73,7 @@ lessons:
     org-name: Southampton-RSG-Training           # Name of the GitHub organisation (or individual) the lesson is in defaults to Southampton-RSG-Training
     gh-name: shell-novice                        # Name of the GitHub repository for the lesson at https://github:com/{org-name}:
     type: episode                                # Currently only 'episode' or 'episode_r' is valid
-    branch: gh-pages                             # Set the branch of the repository to use, useful for lesson customization
+    branch: main                             # Set the branch of the repository to use, useful for lesson customization
     date: 8 January 2022                         # The date of the lesson                   # date and start-time are required for z
     start-time: 10:30 am                         # The start time of the lesson             # 'kind: workshop'
     order: 3                                     # The position of the lesson in the course # order is required for 'kind: course'
@@ -80,7 +81,7 @@ lessons:
   - title: Version Control with git
     gh-name: git-novice
     type: episode
-    branch: gh-pages
+    branch: main
     date: 16 January 2022
     start-time: 10:00
     order: 4
@@ -88,7 +89,7 @@ lessons:
   #  - title: Building Programs with Python
   #    gh-name: python-novice
   #    type: episode
-  #    branch: gh-pages
+  #    branch: main
   #    date:
   #      - 11 January 2022
   #      - 12 January 2022
@@ -100,7 +101,7 @@ lessons:
   - title: Data Analysis and Visualization in R
     gh-name: r-novice
     type: episode_r
-    branch: gh-pages
+    branch: main
     date:
       - 17 January 2022
       - 18 January 2022
@@ -111,14 +112,15 @@ lessons:
       - 15:00
     order: 5
 
+###
+# It is unlikely you need to modify the values below this line
+###
+
 # Specify that things in the episodes collection should be output.
 collections:
   episodes:
     output: true
     permalink: /:slug
-  extras:
-    output: true
-    permalink: /:path/index
 collections_dir: collections
 
 include:
@@ -136,25 +138,6 @@ flavor: "python"
 # a lesson in The Carpentries Incubator), set pilot to "true".
 pilot: false
 
-#------------------------------------------------------------
-# Incubator workshop settings (only relevant for workshops teaching a lesson
-# in The Carpentries Incubator).
-#
-# For an Incubator workshop, uncomment the line below and add the URL of the lesson site.
-# incubator_lesson_site: "put the URL of the lesson being taught here"
-#
-# For an Incubator workshop, uncomment the line below and add the URL of your pre-workshop survey
-# incubator_pre_survey: "put the URL of your pre-workshop survey here"
-#
-# For an Incubator workshop, uncomment the line below and add the URL of your post-workshop survey
-# incubator_post_survey: "put the URL of your post-workshop survey here"
-#
-#------------------------------------------------------------
-
-#------------------------------------------------------------
-# Generic settings (should not need to change).
-#------------------------------------------------------------
-
 # rsg: Custom Lessons from the Southampton-RSG-Training git-org
 carpentry: "rsg"
 
@@ -162,12 +145,6 @@ carpentry: "rsg"
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
 # Please don't change it: <USERNAME>/<PROJECT> is correct.
 repository: <USERNAME>/<PROJECT>
-
-# Email address, no mailto:
-email: "rsginfo@soton.ac.uk"
-
-# Using the new jekyll remote themes
-remote_theme: carpentries/carpentries-theme
 
 # Sites.
 amy_site: "https://amy.carpentries.org/"
@@ -189,10 +166,6 @@ workshop_repo: "https://github.com/carpentries/workshop-template"
 workshop_site: "https://carpentries.github.io/workshop-template"
 cc_by_human: "https://creativecommons.org/licenses/by/4.0/"
 
-# Surveys.
-pre_survey: "https://carpentries.typeform.com/to/wi32rS?slug="
-post_survey: "https://carpentries.typeform.com/to/UgVdRQ?slug="
-
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).
 start_time: 0
 
@@ -213,10 +186,6 @@ defaults:
     values:
       root: ..
       layout: page
-#  - scope:
-#      path: "fig"
-#    values:
-#      image: true
 
 
 # Files and directories that are not to be copied.
@@ -232,5 +201,10 @@ exclude:
 # Turn on built-in syntax highlighting.
 highlighter: rouge
 
+# Using the new jekyll remote themes
+remote_theme: Southampton-RSG-Training/rsg-theme
+
 plugins:
+  - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-include-cache
