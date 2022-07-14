@@ -208,3 +208,4 @@ plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
   - jekyll-include-cache
+  - jekyll-target-blank
