@@ -6,6 +6,10 @@
 	path = submodules/openrefine-data-cleaning
 	url = https://github.com/Southampton-RSG-Training/openrefine-data-cleaning.git
 	branch = main
+[submodule "submodules/project-novice"]
+	path = submodules/project-novice
+	url = https://github.com/Southampton-RSG-Training/project-novice.git
+	branch = main
 [submodule "submodules/shell-novice"]
 	path = submodules/shell-novice
 	url = https://github.com/Southampton-RSG-Training/shell-novice.git
@@ -14,9 +18,9 @@
 	path = submodules/git-novice
 	url = https://github.com/Southampton-RSG-Training/git-novice.git
 	branch = main
-[submodule "submodules/r-novice"]
-	path = submodules/r-novice
-	url = https://github.com/Southampton-RSG-Training/r-novice.git
+[submodule "submodules/python-novice"]
+	path = submodules/python-novice
+	url = https://github.com/Southampton-RSG-Training/python-novice.git
 	branch = main
 [submodule "submodules/reveal.js"]
 	path = submodules/reveal.js
